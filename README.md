@@ -68,7 +68,7 @@ window.cordova.plugins.FileOpener.isFileSupported(FILE_URL, SUCCESS_CALLBACK,ERR
 
 ##  cordova.plugins.FileOpener.openFile
 
-Download and open file with the default appliation on your device.
+Download and open file with the default application on your device.
 
 ```
 window.cordova.plugins.FileOpener.openFile(FILE_URL, SUCCESS_CALLBACK,ERROR_CALLBACK);
