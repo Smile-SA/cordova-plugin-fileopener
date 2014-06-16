@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="fr.smile.cordova.fileopener" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>FileOpener</name>
+    <description>Plugin to download and open files with default application for Android devices</description>
+    <js-module name="FileOpener" src="www/FileOpener.js">
+        <clobbers target="cordova.plugins.FileOpener"/>
+    </js-module>
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="FileOpener">
+                <param name="android-package" value="fr.smile.cordova.fileopener.FileOpener"/>
+            </feature>
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml">
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        </config-file>
+        <source-file src="src/android/FileOpener.java" target-dir="src/fr/smile/cordova/fileopener/FileOpener"/>
+    </platform>
+</plugin>
