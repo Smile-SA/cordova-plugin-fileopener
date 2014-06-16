@@ -12,7 +12,7 @@ cordova-plugin-fileopener
 Using the Cordova 3 Command-line Interface:
 
 ```
-cordova plugin add ????
+cordova plugin add fr.smile.cordova.fileopener
 ```
 
 If you are not using the Cordova Command-line Interface, follow [Using Plugman to Manage Plugins](http://cordova.apache.org/docs/en/edge/plugin_ref_plugman.md.html).
