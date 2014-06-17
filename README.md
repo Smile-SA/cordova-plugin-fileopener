@@ -21,6 +21,14 @@ If you are not using the Cordova Command-line Interface, follow [Using Plugman t
 
 - Android
 
+# Extension supported
+
+The plugin manages its extension:
+
+.doc, .docx, .xls, .xlsx, .rtf, .wav, .gif, .jpg, .jpeg, .png, .txt, .mpg, .mpeg, .mpe, .mp4, .avi, .ods, .odt, .ppt, .pptx
+
+Please feel free to make a pull request if you need more.
+
 # Methods
 
 - cordova.plugins.FileOpener.isFileSupported
@@ -64,7 +72,7 @@ window.cordova.plugins.FileOpener.isFileSupported(FILE_URL, SUCCESS_CALLBACK,ERR
         alert('message: '    + error.message);
     }
 
-    window.cordova.plugins.FileOpener.isFileSupported("file.pdf",onSuccess, onError);
+    window.cordova.plugins.FileOpener.isFileSupported("http://www.website.com/file.pdf",onSuccess, onError);
 
 ##  cordova.plugins.FileOpener.openFile
 
