@@ -21,9 +21,9 @@ If you are not using the Cordova Command-line Interface, follow [Using Plugman t
 
 - Android
 
-# Extension supported
+# Supported Extensions
 
-The plugin manages its extension:
+The plugin manages theses extensions:
 
 .doc, .docx, .xls, .xlsx, .rtf, .wav, .gif, .jpg, .jpeg, .png, .txt, .mpg, .mpeg, .mpe, .mp4, .avi, .ods, .odt, .ppt, .pptx
 
