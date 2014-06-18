@@ -3,6 +3,10 @@
         xmlns:android="http://schemas.android.com/apk/res/android">
     <name>FileOpener</name>
     <description>Plugin to download and open files with default application for Android devices</description>
+    <author>Samuel Martineau</author>
+    <license>MIT</license>
+    <keywords>file, downloader, opener, android, extension, MIME types, cordova, plugin</keywords>
+    <repo>https://github.com/Smile-SA/cordova-plugin-fileopener</repo>
     <js-module name="FileOpener" src="www/FileOpener.js">
         <clobbers target="cordova.plugins.FileOpener"/>
     </js-module>
