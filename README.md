@@ -25,25 +25,25 @@ If you are not using the Cordova Command-line Interface, follow [Using Plugman t
 
 The plugin manages theses extensions:
 
-.doc, .docx, .xls, .xlsx, .rtf, .wav, .gif, .jpg, .jpeg, .png, .txt, .mpg, .mpeg, .mpe, .mp4, .avi, .ods, .odt, .ppt, .pptx
+.doc, .docx, .xls, .xlsx, .rtf, .wav, .gif, .jpg, .jpeg, .png, .txt, .mpg, .mpeg, .mpe, .mp4, .avi, .ods, .odt, .ppt, .pptx, .apk
 
 Please feel free to make a pull request if you need more.
 
 # Methods
 
-- cordova.plugins.FileOpener.isFileSupported
+- cordova.plugins.FileOpener.canOpenFile
 - cordova.plugins.FileOpener.openFile
 
 
 # Usage
 
-##  cordova.plugins.FileOpener.isFileSupported
+##  cordova.plugins.FileOpener.canOpenFile
 
 Return if default application to open a file is set on the device.
 
 
 ```
-window.cordova.plugins.FileOpener.isFileSupported(FILE_URL, SUCCESS_CALLBACK,ERROR_CALLBACK);
+window.cordova.plugins.FileOpener.canOpenFile(FILE_URL, SUCCESS_CALLBACK,ERROR_CALLBACK);
 ```
 
 ###  Parameters
@@ -63,7 +63,7 @@ window.cordova.plugins.FileOpener.isFileSupported(FILE_URL, SUCCESS_CALLBACK,ERR
     //
     var onSuccess = function(data) {
         alert('extension: '          + data.extension          + '\n' +
-              'isSupported: '         + data.isSupported);
+              'canBeOpen: '         + data.isSupported);
     };
 
     // onError Callback receives a json object
@@ -72,7 +72,7 @@ window.cordova.plugins.FileOpener.isFileSupported(FILE_URL, SUCCESS_CALLBACK,ERR
         alert('message: '    + error.message);
     }
 
-    window.cordova.plugins.FileOpener.isFileSupported("http://www.website.com/file.pdf",onSuccess, onError);
+    window.cordova.plugins.FileOpener.canOpenFile("http://www.website.com/file.pdf",onSuccess, onError);
 
 ##  cordova.plugins.FileOpener.openFile
 

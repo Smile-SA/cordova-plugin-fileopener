@@ -54,6 +54,7 @@ public class FileOpener extends CordovaPlugin {
             MIME_TYPES.put(".odt", "application/vnd.oasis.opendocument.text");
             MIME_TYPES.put(".ppt", "application/vnd.ms-powerpoint");
             MIME_TYPES.put(".pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation");
+            MIME_TYPES.put(".apk", "application/vnd.android.package-archive");
         }
 
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
@@ -68,10 +69,10 @@ public class FileOpener extends CordovaPlugin {
         	hasExtension = true;
         }
 
-        if ("isFileSupported".equals(action)) {
+        if ("canOpenFile".equals(action)) {
             if(hasExtension){
                 obj.put("extension", extension);
-                obj.put("isSupported", this.isFileSupported(extension,context));
+                obj.put("canBeOpen", this.canOpenFile(extension,context));
                 callbackContext.success(obj);
             }
             return true;
@@ -93,7 +94,7 @@ public class FileOpener extends CordovaPlugin {
     	if(args.length() > 0) {
     		String url = args.getString(0);
     		if(url.lastIndexOf(".") > -1){
-    			String extension = args.getString(0).substring(args.getString(0).lastIndexOf("."));
+    			String extension = url.substring(url.lastIndexOf("."));
     			if(hasMimeType(extension)){
     			    return true;
     			}
@@ -124,7 +125,7 @@ public class FileOpener extends CordovaPlugin {
             return MIME_TYPES.get(extension);
     }
 
-    private boolean isFileSupported(String extension, Context context) {
+    private boolean canOpenFile(String extension, Context context) {
             Intent i = new Intent(Intent.ACTION_VIEW);
             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             final File tempFile = new File(context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), "test"+extension);
