@@ -63,7 +63,7 @@ window.cordova.plugins.FileOpener.canOpenFile(FILE_URL, SUCCESS_CALLBACK,ERROR_C
     //
     var onSuccess = function(data) {
         alert('extension: '          + data.extension          + '\n' +
-              'canBeOpen: '         + data.isSupported);
+              'canBeOpen: '         + data.canBeOpen);
     };
 
     // onError Callback receives a json object
