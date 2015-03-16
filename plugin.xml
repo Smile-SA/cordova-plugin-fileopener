@@ -19,6 +19,6 @@
         <config-file parent="/*" target="AndroidManifest.xml">
             <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
         </config-file>
-        <source-file src="src/android/FileOpener.java" target-dir="src/fr/smile/cordova/fileopener/FileOpener"/>
+        <source-file src="src/android/FileOpener.java" target-dir="src/fr/smile/cordova/fileopener"/>
     </platform>
 </plugin>
