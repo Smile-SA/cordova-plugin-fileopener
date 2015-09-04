@@ -71,7 +71,14 @@ public class FileOpener extends CordovaPlugin {
             return true;
         } else if ("openFile".equals(action)) {
             if (extension != null) {
-                this.downloadAndOpenFile(context, args.getString(0), callbackContext);
+                String target = args.getString(0);
+                if(target.contains("file://")){
+                    //local file uri(Already Downloaded case)
+                    File file = new File(target.replace("file://", ""));
+                    this.openFile(Uri.fromFile( file), extension, context, callbackContext);
+                }else{
+                    this.downloadAndOpenFile(context, args.getString(0), callbackContext);
+                }
             }
             return true;
         } else {

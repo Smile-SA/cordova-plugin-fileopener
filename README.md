@@ -108,7 +108,8 @@ window.cordova.plugins.FileOpener.openFile(FILE_URL, SUCCESS_CALLBACK,ERROR_CALL
     }
 
     window.cordova.plugins.FileOpener.openFile("http://www.website.com/file.pdf",onSuccess, onError);
-    
+    window.cordova.plugins.FileOpener.openFile("file:///storage/emulated/0/Download/local_file.pdf",onSuccess, onError);
+
 # License
 
 MIT :
