@@ -71,13 +71,16 @@ public class FileOpener extends CordovaPlugin {
             return true;
         } else if ("openFile".equals(action)) {
             if (extension != null) {
-                String target = args.getString(0);
-                if(target.contains("file://")){
-                    //local file uri(Already Downloaded case)
-                    File file = new File(target.replace("file://", ""));
-                    this.openFile(Uri.fromFile( file), extension, context, callbackContext);
-                }else{
-                    this.downloadAndOpenFile(context, args.getString(0), callbackContext);
+                String fileURL = args.getString(0);
+                if (fileURL.startsWith("file://")) {
+                    // Local file uri (case of an already downloaded file)
+                    Log.d(FILE_OPENER, "Opening file from local URI as it begins with file://");
+                    File file = new File(fileURL.replaceFirst("^file:\\/\\/", ""));
+                    Uri uri = Uri.fromFile(file);
+                    Log.d(FILE_OPENER, "Local path: " + uri);
+                    this.openFile(uri, extension, context, callbackContext);
+                } else {
+                    this.downloadAndOpenFile(context, fileURL, callbackContext);
                 }
             }
             return true;
@@ -193,7 +196,7 @@ public class FileOpener extends CordovaPlugin {
         int reason = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_REASON));
         String failedReason = "";
 
-        switch(reason){
+        switch (reason) {
             case DownloadManager.ERROR_CANNOT_RESUME:
                 failedReason = "ERROR_CANNOT_RESUME";
                 break;

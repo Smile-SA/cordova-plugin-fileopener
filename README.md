@@ -43,14 +43,14 @@ Return if default application to open a file is set on the device.
 
 
 ```
-window.cordova.plugins.FileOpener.canOpenFile(FILE_URL, SUCCESS_CALLBACK,ERROR_CALLBACK);
+window.cordova.plugins.FileOpener.canOpenFile(FILE_URL, SUCCESS_CALLBACK, ERROR_CALLBACK);
 ```
 
 ###  Parameters
 
 - FILE_URL: The file URL.
 
-- SUCCESS_CALLBACK: _ The callback that is passed the result boolean.
+- SUCCESS_CALLBACK: The callback that is passed the result boolean.
 
 - ERROR_CALLBACK: _(Optional)_ The callback that executes if an error occurs.
 
@@ -62,31 +62,32 @@ window.cordova.plugins.FileOpener.canOpenFile(FILE_URL, SUCCESS_CALLBACK,ERROR_C
     // boolean response
     //
     var onSuccess = function(data) {
-        alert('extension: '          + data.extension          + '\n' +
-              'canBeOpen: '         + data.canBeOpen);
+        alert('extension: ' + data.extension + '\n' +
+              'canBeOpen: ' + data.canBeOpen);
     };
 
     // onError Callback receives a json object
     //
     function onError(error) {
-        alert('message: '    + error.message);
+        alert('message: '  + error.message);
     }
 
-    window.cordova.plugins.FileOpener.canOpenFile("http://www.website.com/file.pdf",onSuccess, onError);
+    window.cordova.plugins.FileOpener.canOpenFile("http://www.website.com/file.pdf", onSuccess, onError);
+    window.cordova.plugins.FileOpener.canOpenFile("file:///storage/emulated/0/Download/local_file.pdf", onSuccess, onError);
 
 ##  cordova.plugins.FileOpener.openFile
 
 Download and open file with the default application on your device.
 
 ```
-window.cordova.plugins.FileOpener.openFile(FILE_URL, SUCCESS_CALLBACK,ERROR_CALLBACK);
+window.cordova.plugins.FileOpener.openFile(FILE_URL, SUCCESS_CALLBACK, ERROR_CALLBACK);
 ```
 
 ###  Parameters
 
 - FILE_URL: The file URL.
 
-- SUCCESS_CALLBACK: _ The callback that notify when action is finished.
+- SUCCESS_CALLBACK: The callback that notify when action is finished.
 
 - ERROR_CALLBACK: _(Optional)_ The callback that executes if an error occurs.
 
@@ -98,17 +99,17 @@ window.cordova.plugins.FileOpener.openFile(FILE_URL, SUCCESS_CALLBACK,ERROR_CALL
     // message response
     //
     var onSuccess = function(data) {
-        alert('message: '          + data.message);
+        alert('message: ' + data.message);
     };
 
     // onError Callback receives a json object
     //
     function onError(error) {
-        alert('message: '    + error.message);
+        alert('message: ' + error.message);
     }
 
-    window.cordova.plugins.FileOpener.openFile("http://www.website.com/file.pdf",onSuccess, onError);
-    window.cordova.plugins.FileOpener.openFile("file:///storage/emulated/0/Download/local_file.pdf",onSuccess, onError);
+    window.cordova.plugins.FileOpener.openFile("http://www.website.com/file.pdf", onSuccess, onError);
+    window.cordova.plugins.FileOpener.openFile("file:///storage/emulated/0/Download/local_file.pdf", onSuccess, onError);
 
 # License
 
