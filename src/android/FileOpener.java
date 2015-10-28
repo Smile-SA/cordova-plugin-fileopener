@@ -46,6 +46,8 @@ public class FileOpener extends CordovaPlugin {
         MIME_TYPES.put(".jpeg", "image/jpeg");
         MIME_TYPES.put(".png", "image/png");
         MIME_TYPES.put(".txt", "text/plain");
+        MIME_TYPES.put(".tiff", "image/tiff"); 
+        MIME_TYPES.put(".tif", "image/tiff"); 
         MIME_TYPES.put(".mpg", "video/*");
         MIME_TYPES.put(".mpeg", "video/*");
         MIME_TYPES.put(".mpe", "video/*");
@@ -58,6 +60,8 @@ public class FileOpener extends CordovaPlugin {
         MIME_TYPES.put(".pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation");
         MIME_TYPES.put(".apk", "application/vnd.android.package-archive");
         MIME_TYPES.put(".swf", "application/x-shockwave-flash");
+        MIME_TYPES.put(".zip", "application/zip");
+        MIME_TYPES.put(".rar", "application/x-rar-compressed");
     }
 
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
