@@ -32,6 +32,7 @@ public class FileOpener extends CordovaPlugin {
 
     static {
         MIME_TYPES = new HashMap<String, String>();
+        MIME_TYPES.put(".djvu", "image/x.djvu");
         MIME_TYPES.put(".pdf", "application/pdf");
         MIME_TYPES.put(".doc", "application/msword");
         MIME_TYPES.put(".docx", "application/msword");
@@ -39,21 +40,28 @@ public class FileOpener extends CordovaPlugin {
         MIME_TYPES.put(".xlsx", "application/vnd.ms-powerpoint");
         MIME_TYPES.put(".rtf", "application/vnd.ms-excel");
         MIME_TYPES.put(".wav", "audio/x-wav");
+        MIME_TYPES.put(".mp3", "audio/mpeg3");
         MIME_TYPES.put(".gif", "image/gif");
         MIME_TYPES.put(".jpg", "image/jpeg");
         MIME_TYPES.put(".jpeg", "image/jpeg");
         MIME_TYPES.put(".png", "image/png");
         MIME_TYPES.put(".txt", "text/plain");
+        MIME_TYPES.put(".tiff", "image/tiff"); 
+        MIME_TYPES.put(".tif", "image/tiff"); 
         MIME_TYPES.put(".mpg", "video/*");
         MIME_TYPES.put(".mpeg", "video/*");
         MIME_TYPES.put(".mpe", "video/*");
         MIME_TYPES.put(".mp4", "video/*");
         MIME_TYPES.put(".avi", "video/*");
+        MIME_TYPES.put(".flv", "video/*");
         MIME_TYPES.put(".ods", "application/vnd.oasis.opendocument.spreadsheet");
         MIME_TYPES.put(".odt", "application/vnd.oasis.opendocument.text");
         MIME_TYPES.put(".ppt", "application/vnd.ms-powerpoint");
         MIME_TYPES.put(".pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation");
         MIME_TYPES.put(".apk", "application/vnd.android.package-archive");
+        MIME_TYPES.put(".swf", "application/x-shockwave-flash");
+        MIME_TYPES.put(".zip", "application/zip");
+        MIME_TYPES.put(".rar", "application/x-rar-compressed");
     }
 
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
