@@ -4,6 +4,7 @@ import java.io.File;
 import java.lang.String;
 import java.util.HashMap;
 
+import android.annotation.TargetApi;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.PluginResult;
@@ -26,6 +27,7 @@ import android.database.Cursor;
 import android.content.ActivityNotFoundException;
 import android.util.Log;
 
+@TargetApi(9)
 public class FileOpener extends CordovaPlugin {
     private static final String FILE_OPENER = "FileOpener";
     private static final HashMap<String, String> MIME_TYPES;
@@ -156,7 +158,7 @@ public class FileOpener extends CordovaPlugin {
     }
 
     private void downloadAndOpenFile(final Context context, final String fileUrl, final CallbackContext callbackContext) {
-        final String filename = fileUrl.substring(fileUrl.lastIndexOf("/") + 1);
+        final String filename = fileUrl.substring(fileUrl.lastIndexOf("/") + 1).replaceAll("%[0-9]{2}]", "_");
         final String extension = fileUrl.substring(fileUrl.lastIndexOf("."));
         final File tempFile = new File(context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), filename);
 
