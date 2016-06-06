@@ -1,13 +1,14 @@
 package fr.smile.cordova.fileopener;
 
 import java.io.File;
+import java.io.UnsupportedEncodingException;
 import java.lang.String;
+import java.net.URLDecoder;
 import java.util.HashMap;
 
 import android.annotation.TargetApi;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
-import org.apache.cordova.PluginResult;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -48,8 +49,8 @@ public class FileOpener extends CordovaPlugin {
         MIME_TYPES.put(".jpeg", "image/jpeg");
         MIME_TYPES.put(".png", "image/png");
         MIME_TYPES.put(".txt", "text/plain");
-        MIME_TYPES.put(".tiff", "image/tiff"); 
-        MIME_TYPES.put(".tif", "image/tiff"); 
+        MIME_TYPES.put(".tiff", "image/tiff");
+        MIME_TYPES.put(".tif", "image/tiff");
         MIME_TYPES.put(".mpg", "video/*");
         MIME_TYPES.put(".mpeg", "video/*");
         MIME_TYPES.put(".mpe", "video/*");
@@ -90,7 +91,11 @@ public class FileOpener extends CordovaPlugin {
                     Log.d(FILE_OPENER, "Local path: " + uri);
                     this.openFile(uri, extension, context, callbackContext);
                 } else {
-                    this.downloadAndOpenFile(context, fileURL, callbackContext);
+                    try {
+                        this.downloadAndOpenFile(context, fileURL, callbackContext);
+                    } catch (UnsupportedEncodingException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
             }
             return true;
@@ -157,8 +162,8 @@ public class FileOpener extends CordovaPlugin {
         }
     }
 
-    private void downloadAndOpenFile(final Context context, final String fileUrl, final CallbackContext callbackContext) {
-        final String filename = fileUrl.substring(fileUrl.lastIndexOf("/") + 1).replaceAll("%[0-9]{2}]", "_");
+    private void downloadAndOpenFile(final Context context, final String fileUrl, final CallbackContext callbackContext) throws UnsupportedEncodingException {
+        final String filename = URLDecoder.decode(fileUrl.substring(fileUrl.lastIndexOf("/") + 1), "UTF-8");
         final String extension = fileUrl.substring(fileUrl.lastIndexOf("."));
         final File tempFile = new File(context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), filename);
 
