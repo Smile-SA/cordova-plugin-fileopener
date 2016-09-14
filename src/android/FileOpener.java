@@ -65,6 +65,7 @@ public class FileOpener extends CordovaPlugin {
         MIME_TYPES.put(".swf", "application/x-shockwave-flash");
         MIME_TYPES.put(".zip", "application/zip");
         MIME_TYPES.put(".rar", "application/x-rar-compressed");
+        MIME_TYPES.put(".csv", "text/csv");
     }
 
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
